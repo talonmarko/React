@@ -13,10 +13,10 @@ app.listen(3000, () => {
 
 const mysql = require('mysql');
 const db = mysql.createConnection({
-    host: "172.16.0.26",
-    user: "ruokailu_user",
-    password: "PTt]r[2Ji(IIeysT",
-    database: "ruokailu"
+    host: "",
+    user: "",
+    password: "",
+    database: ""
 });
 
 db.connect((err) => {
