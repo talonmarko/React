@@ -1,5 +1,5 @@
 body {
-    background-color: #faf0e6;
+    background-color: #fcfcfc;
     margin: 0 auto;
     font-size: 50px;
     font-weight: bold;
@@ -10,44 +10,48 @@ body {
     font-weight: bold;
     text-align: center;
 }
-  
+
 h1{
+    color: #353535;
     text-align: center;
     font-size: 50px;
 }
 
 p{
-    font-size: 30px;
+    margin: 50px;
+    color: #353535;
+    font-size: 40px;
     text-align: center;
     font-weight: normal;
+    /* margin-top: 10px; */
 }
 
-.nav{
-    background-color: red;
-    color: red;
-}
-
-  .hGkspH{
+.hGkspH{
+    position: relative;
     border: 1px solid black;
-    background-color: linen;
-    font-size: 25px;
+    background-color: #fcfcfc;
+    color: #353535;
+    font-size: 30px;
     font-weight: bold;
 }
 
-  #dropdown-basic{
+#dropdown-basic{
+    background-color: #353535;
+    color: #fcfcfc;
+    position: relative;
+    left: 45%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 20px;
     font-weight: bold;
     border: 1px solid black;
-    padding: 15px;
 }
 
-.ravintola{
+/* .ravintola{
     color: black;
     font-family: poppins;
-    font-size: 50px;
+    font-size: 60px;
 }
 
 .muu{
@@ -55,10 +59,72 @@ p{
     font-size: 30px;
     color: black;
     margin: center;
-}
+    text-align: right;
+} */
+
+.blur {
+    filter: blur(5px);
+   }
 
 .navbar{
-    background: #bbbbbb;
-    height:200px;
-    width:100% !important;
+    position: static;
+    width: 100% !important;
+    background: #fcfcfc;
+    height:150px;
 }
+
+.bg-dark{
+    --bs-bg-opacity: 0.0;
+}
+
+/* Burger menu button position and size */
+.bm-burger-button {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    right: 35px;
+    top: 35px;
+    float: right;
+   }
+
+/* Burger menu icon */
+.bm-burger-bars {
+    background: #353535;
+  }
+
+/*Burger menu text items*/
+a{
+    padding-top: 15px;
+    color: #fcfcfc;
+    text-decoration: none;
+}
+
+/*Burger menu text items on hover*/
+a:hover{
+    color: #bbbbbb;
+    text-shadow:
+    inset -5px -5px 10px 0 hsla(0, 0%, 0%, 0.14),
+    inset 5px 5px 10px 0 hsla(0, 0%, 100%, 0.14);
+}
+
+/* Close button position and height */
+.bm-cross-button {
+    height: 25px;
+    width: 25px;
+  }
+
+/*Close button of sidebar*/
+  .bm-cross {
+    background-color: #fcfcfc;
+  }
+
+/* Sidebar styles */
+.bm-menu {
+    border-radius: 0px 0px 0px 10px;
+    font-family: monospace;
+    opacity: 0.75;
+    background-color: #353535;
+    padding: 40px;
+    font-size: 30px;
+    height: 30% !important;
+  }
