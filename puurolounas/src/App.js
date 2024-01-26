@@ -1,4 +1,3 @@
-import {PrismaClient} from '@prisma/client';
 import React, {useEffect, useState} from "react";
 import DataTable from "react-data-table-component";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -7,13 +6,44 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import "./styles.css";
 import logo from './logo.png';
-import { slide as Menu } from "react-burger-menu";
+import { push as Menu } from "react-burger-menu";
+import axios from "axios";
+import * as moment from "moment";
+import "moment-business-days";
 
 function App() {
 
-  const prisma = new PrismaClient();
+  const startDate = moment('2024-01-01');
+  const endDate = moment('2024-12-31');
 
-  const [result, setResult] = useState();
+  const countOfBusinessDays = startDate.businessDiff(endDate);
+    console.log(`Number of business days: ${countOfBusinessDays}`);
+
+function getLastFiveBusinessDays() {
+  let days = [];
+    let currentDay = moment().subtract(1, 'days');
+     
+  for(let i = 0; i < 5; i++) {
+    while (currentDay.isoWeekday() === 6 || currentDay.isoWeekday() === 7) {
+      currentDay.subtract(1, 'days');
+      }
+      days.push(currentDay.format('DD.MM.YYYY'));
+        currentDay.subtract(1, 'days');
+      }
+      return days;
+     }
+
+  const [count, setCount] = useState();
+
+  useEffect(() => {
+    axios.get('http://localhost:3000/api/count')
+    .then((response) => {
+         setCount(response.data.count);
+       })
+       .catch((error) => {
+         console.log(error);
+       });
+   }, []);
 
   const columns = [
     {
@@ -32,33 +62,21 @@ function App() {
       sortable: true
     }];
 
-    const data = [
-      {
-        pvm: '08.01.2024',
-        puuro: '53',
-        lounas: JSON.stringify(result),
-      },
-      {
-        pvm: '09.01.2024',
-        puuro: '54',
-        lounas: '123'
-      },
-      {
-        pvm: '10.01.2024',
-        puuro: '78',
-        lounas: '151'
-      },
-      {
-        pvm: '11.01.2024',
-        puuro: '89',
-        lounas: '162'
-      },
-      {
-        pvm: '12.01.2024',
-        puuro: '99',
-        lounas: '142'
+    const data = getLastFiveBusinessDays().map((date, index) => {
+      if (index === 0) {
+         return {
+           pvm: date,
+           puuro: JSON.stringify(count),
+           lounas: ''
+         };
+      } else {
+         return {
+           pvm: date,
+           puuro: '',
+           lounas: ''
+         };
       }
-  ];
+     });
 
 return (
   <>
@@ -77,11 +95,11 @@ return (
       </Container>
     </Navbar>
      <>
-      <p>Kirjatut puurot tänään: 83</p>
-      <p>Kirjatut lounaat tänään: 137</p>
+      <p>Kirjatut puurot tänään: </p>
+      <p>Kirjatut lounaat tänään: </p>
     </>
 
-    <div>
+    {/* <div>
       <Dropdown>
         <Dropdown.Toggle variant="dark" id="dropdown-basic">
           Valitse Viikko
@@ -94,9 +112,10 @@ return (
           <Dropdown.Item href="4">Viikko 4</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
-    </div>
+    </div> */}
  
     <div className='container mt-5' style={{ width: '70%'}}>
+      <h2>Viimeisen 5 työpäivän tilastot:</h2>
       <DataTable
         columns={columns}
         data={data}

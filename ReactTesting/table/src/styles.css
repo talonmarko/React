@@ -1,0 +1,38 @@
+body{
+  background-color: #fbfef5;
+}
+
+h1{
+  font-size: 40px;
+  justify-content: center;
+  text-align: center;
+}
+
+p{
+  font-family: monospace;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.table{
+  position: relative;
+  border: 2px solid;
+  left: 200px;
+  font-size: 40px;
+}
+
+.erkbiK div:first-child {
+  font-size: 20px;
+}
+
+.lnOUep{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.count{
+  font-size: 30px;
+  margin: 10px;
+  text-align: center;
+}

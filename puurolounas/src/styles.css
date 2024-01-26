@@ -17,13 +17,19 @@ h1{
     font-size: 50px;
 }
 
+h2{
+    text-align: center;
+    font-size: 30px;
+    color: black;
+    margin: 20px;
+}
+
 p{
-    margin: 50px;
+    margin: 40px;
     color: #353535;
     font-size: 40px;
     text-align: center;
     font-weight: normal;
-    /* margin-top: 10px; */
 }
 
 .hGkspH{
@@ -48,24 +54,6 @@ p{
     border: 1px solid black;
 }
 
-/* .ravintola{
-    color: black;
-    font-family: poppins;
-    font-size: 60px;
-}
-
-.muu{
-    font-family: monospace;
-    font-size: 30px;
-    color: black;
-    margin: center;
-    text-align: right;
-} */
-
-.blur {
-    filter: blur(5px);
-   }
-
 .navbar{
     position: static;
     width: 100% !important;
@@ -73,6 +61,7 @@ p{
     height:150px;
 }
 
+/*Burger menu background*/
 .bg-dark{
     --bs-bg-opacity: 0.0;
 }
