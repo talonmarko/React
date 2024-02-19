@@ -11,8 +11,8 @@ mongoose.connect('mongodb://localhost:27017/lounas', {useNewUrlParser: true, use
 app.get('/api/count', async (req, res) => {
  const count = await mongoose.connection.db.collection("ruokailu").find({
     request_date: {
-        "$gte": ("2023-12-14 07:00:00.000"),
-        "$lte": ("2023-12-14 09:45:00.000")
+        "$gte": ("2024-01-30 07:00:00.000"),
+        "$lte": ("2024-01-30 14:00:00.000")
     }
 }).count();
  res.send({ count });

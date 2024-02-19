@@ -13,11 +13,11 @@ import "moment-business-days";
 
 function App() {
 
-  const startDate = moment('2024-01-01');
-  const endDate = moment('2024-12-31');
+  // const startDate = moment('2024-01-01');
+  // const endDate = moment('2024-12-31');
 
-  const countOfBusinessDays = startDate.businessDiff(endDate);
-    console.log(`Number of business days: ${countOfBusinessDays}`);
+  // const countOfBusinessDays = startDate.businessDiff(endDate);
+  //   console.log(`Number of business days: ${countOfBusinessDays}`);
 
 function getLastFiveBusinessDays() {
   let days = [];
@@ -28,6 +28,7 @@ function getLastFiveBusinessDays() {
       currentDay.subtract(1, 'days');
       }
       days.push(currentDay.format('DD.MM.YYYY'));
+      console.log(`Date ${i}: ${currentDay.format('DD.MM.YYYY')}`);
         currentDay.subtract(1, 'days');
       }
       return days;
@@ -66,7 +67,7 @@ function getLastFiveBusinessDays() {
       if (index === 0) {
          return {
            pvm: date,
-           puuro: JSON.stringify(count),
+           puuro: '',
            lounas: ''
          };
       } else {
@@ -95,7 +96,7 @@ return (
       </Container>
     </Navbar>
      <>
-      <p>Kirjatut puurot tänään: </p>
+      <p>Kirjatut puurot tänään: 123</p>
       <p>Kirjatut lounaat tänään: </p>
     </>
 
